@@ -1,8 +1,8 @@
-# Gemini Fullstack LangGraph Quickstart
+# Vespucci WebApp - Research Agent
 
 This project demonstrates a fullstack application using a React frontend and a LangGraph-powered backend agent. The agent is designed to perform comprehensive research on a user's query by dynamically generating search terms, querying the web using Google Search, reflecting on the results to identify knowledge gaps, and iteratively refining its search until it can provide a well-supported answer with citations. This application serves as an example of building research-augmented conversational AI using LangGraph and Google's Gemini models.
 
-<img src="./app.png" title="Gemini Fullstack LangGraph" alt="Gemini Fullstack LangGraph" width="90%">
+<img src="./app.png" title="Vespucci WebApp" alt="Vespucci WebApp" width="90%">
 
 ## Features
 
@@ -57,14 +57,30 @@ npm install
 
 **3. Run Development Servers:**
 
-**Backend & Frontend:**
+**For full functionality (recommended):**
 
 ```bash
-make dev
+make dev-all
 ```
-This will run the backend and frontend development servers.    Open your browser and navigate to the frontend development server URL (e.g., `http://localhost:5173/app`).
 
-_Alternatively, you can run the backend and frontend development servers separately. For the backend, open a terminal in the `backend/` directory and run `langgraph dev`. The backend API will be available at `http://127.0.0.1:2024`. It will also open a browser window to the LangGraph UI. For the frontend, open a terminal in the `frontend/` directory and run `npm run dev`. The frontend will be available at `http://localhost:5173`._
+This will run all three servers:
+- Frontend (Vite) - Port 5173
+- LangGraph Backend (AI agent) - Port 2024  
+- Web API (news/heatmap) - Port 8001
+
+**Alternative commands:**
+
+```bash
+# Run frontend and LangGraph backend only
+make dev
+
+# Run servers separately
+make dev-frontend    # Frontend only
+make dev-backend     # LangGraph backend only
+make dev-webapi      # Web API only
+```
+
+Open your browser and navigate to the frontend development server URL (e.g., `http://localhost:5173/app`).
 
 ## How the Backend Agent Works (High-Level)
 
@@ -102,7 +118,7 @@ _Note: If you are not running the docker-compose.yml example or exposing the bac
 
    Run the following command from the **project root directory**:
    ```bash
-   docker build -t gemini-fullstack-langgraph -f Dockerfile .
+   docker build -t vespucci-webapp -f Dockerfile .
    ```
 **2. Run the Production Server:**
 
@@ -122,4 +138,4 @@ Open your browser and navigate to `http://localhost:8123/app/` to see the applic
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details. 
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
