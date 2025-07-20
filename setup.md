@@ -22,3 +22,5 @@ make dev-backend
 
 # Terminal 3: Web API (news/heatmap)
 make dev-webapi
+
+conda create -n vespucci-webapp python=3.11
